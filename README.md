@@ -35,14 +35,12 @@ sudo apt-get awscli -y
 - Here we (can) set our image as private and give this repository a name (for this example we named it **hello-vana**). 
 - Create repository.
 - Once the repository is created we can go in *ECR > Repositories > hello-vana*.
-- On the right up corner go in "View push commands" and this will bring us to this page
-![](images/push-commands.png)
-- Follow this steps and it will push the image into our **hello-vana** repository.
+- On the right up corner go in "View push commands"
+- Follow the steps and it will push the image into our **hello-vana** repository.
 
 **NOTE:** On Linux it is possible to get an error pushing the image 'Error saving credentials', to solve this error we just need to run `sudo apt-get install gnupg2 pass`. Also it may be necessary to run each command with `sudo`.
-- With this steps completed we already have an image on our repository ready to be deployed as a Lambda Function.
 
-![](images/repository-images.png)
+With this steps completed we already have an image on our repository ready to be deployed as a Lambda Function.
 
 ## Lambda Function
 On the Lambda Functions page go into **Create function**
@@ -51,9 +49,6 @@ On the Lambda Functions page go into **Create function**
 - Browse images.
 - On the field "Amazon ECR image repository" select **hello-vana**.
 - This will list all the images pushed into the repository, select the desired Image tag (in our case it is **latest**).
-
-![](images/select-container-iamge.png)
-
 - On **Permissions** select any role that can allow this Lambda to write logs into **CloudWatch**.
 - On this same page, inside "Container image overrides" you can add configuration such as the _working directory_, this will override the `Dockerfile` configuration, in this case we left it empty.
 - Create function.
